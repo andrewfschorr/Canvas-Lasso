@@ -4,7 +4,8 @@
   "description": "Lasso selection tool for the HTML5 canvas element",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "example": "echo \"This is just a test\" && exit 1"
   },
   "keywords": [
     "canvas",
@@ -12,5 +13,8 @@
     "lasso"
   ],
   "author": "Andrew F Schorr <afs35mm@gmail.com> (http://andrewfschorr.com/)",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack-dev-server": "^2.4.2"
+  }
 }
