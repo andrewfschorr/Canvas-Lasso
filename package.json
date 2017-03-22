@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/webpack-dev-server  --config examples/webpack.config.js"
+    "start": "./node_modules/.bin/webpack-dev-server  --config examples/webpack.config.babel.js"
   },
   "keywords": [
     "canvas",
@@ -15,6 +15,8 @@
   "author": "Andrew F Schorr <afs35mm@gmail.com> (http://andrewfschorr.com/)",
   "license": "ISC",
   "devDependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "babel-register": "^6.24.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
