@@ -2,7 +2,7 @@ import path from 'path';
 
 module.exports = {
     context: __dirname,
-    entry: path.resolve(__dirname, 'src/index.js'),
+    entry: path.resolve(__dirname, 'index.js'),
     devtool: 'source-map',
     output: {
         filename: 'bundle.js',

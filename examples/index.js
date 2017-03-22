@@ -1,4 +1,4 @@
-// import CanvasLasso from 'index';
+import CanvasLasso from '../index';
 // const CanvasLasso = require('../../index');
 
 function prepend(elToInsert, parentEl) {
@@ -9,7 +9,7 @@ function prepend(elToInsert, parentEl) {
     }
     return elToInsert;
 }
-
+console.log('test');
 // prepend(new CanvasLasso(), document.body);
-console.log('yolo!poop');
+
 
