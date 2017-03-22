@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "example": "echo \"This is just a test\" && exit 1"
+    "start": "./node_modules/.bin/webpack-dev-server  --config examples/webpack.config.js"
   },
   "keywords": [
     "canvas",
@@ -15,6 +15,12 @@
   "author": "Andrew F Schorr <afs35mm@gmail.com> (http://andrewfschorr.com/)",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "webpack": "^2.3.1",
     "webpack-dev-server": "^2.4.2"
   }
 }
