@@ -1,0 +1,19 @@
+{
+    "extends": "airbnb",
+    "installedESLint": true,
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": ["error", 4, {"SwitchCase": 1}],
+         "no-console": 0,
+         "prefer-arrow-callback": ["off", { "allowNamedFunctions": false }],
+         "func-names": 0,
+         "space-before-function-paren": 0,
+         "class-methods-use-this": "off"
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    }
+}
