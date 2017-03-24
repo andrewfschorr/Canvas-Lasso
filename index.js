@@ -1,46 +1,60 @@
 const ANONYMOUS = 'Anonymous';
 
 class CanvasLasso {
-    constructor(imgOrBase64) {
+    constructor(imgSrc) {
         const c = document.createElement('canvas');
         const ctx = c.getContext('2d');
-        this.img = new Image();
-        this.img.crossOrigin = ANONYMOUS;
+        const img = new Image();
+        img.crossOrigin = ANONYMOUS;
+        return new Promise((resolve) => {
+            img.onload = (e) => {
+                console.log(e.target.src);
+                this.imageWidth = e.target.width;
+                this.imageHeight = e.target.height;
 
-        if (this.isBase64String(imgOrBase64)) {
+                console.log(this.imageWidth);
+                console.log(this.imageHeight);
 
-        } else {
-            const p = this.loadImage(imgOrBase64);
-            p.then(() => {
-                c.height = this.img.height;
-                c.width = this.img.width;
-                ctx.drawImage(this.img, 0, 0);
-                const base64Bg = c.toDataURL();
-                this.img.src = base64Bg;
-                console.log(c);
-                return c;
-            }, function(e) {
-                throw new Error(e);
-            });
-        }
-        return c;
+                ctx.drawImage(e.target, 0, 0);
+                const base64Str = c.toDataURL();
+                resolve(this.makeCanvas(base64Str));
+            };
+            img.src = imgSrc;
+        });
     }
 
-    isBase64String(str) {
-        try {
-            return btoa(atob(str)) === str;
-        } catch (err) {
-            return false;
-        }
-    }
-
-    loadImage(src) {
-        return new Promise((resolve, reject) => {
-            this.img.src = src;
-            this.img.onload = resolve;
-            this.img.onerror = reject;
+    makeCanvas(base64Str) {
+        const c = document.createElement('canvas');
+        const ctx = c.getContext('2d');
+        const img = new Image();
+        img.crossOrigin = ANONYMOUS;
+        return new Promise((resolve) => {
+            console.log(this.imageWidth);
+            console.log(this.imageHeight);
+            c.width = this.imageWidth;
+            c.height = this.imageHeight;
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, this.imageWidth, this.imageHeight);
+                resolve(c);
+            };
+            img.src = base64Str;
         });
     }
 }
 
 export default CanvasLasso;
+
+
+// console.log(cWidth, cHeight);
+// var newWindow = window.open();
+// var c = document.createElement('canvas');
+// c.id = 'mycanvas';
+// c.width = cWidth;
+// c.height = cHeight;
+// var ctx = c.getContext('2d');
+// var image = new Image();
+// image.onload = function() {
+//     ctx.drawImage(image, 0, 0, cWidth, cHeight);
+// };
+// image.src = base64Img;
+// newWindow.document.body.appendChild(c);
